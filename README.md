@@ -1,159 +1,138 @@
-# Sports Center Booking System
+# 🏟️ Sports Center Booking System
 
-## Overview
+A Java-based application for managing reservations in a sports center.  
+The system allows users to browse available sports facilities and book time slots, while administrators can manage facilities and reservations.
 
-Sports Center Booking System is a console-based Java application designed for managing sports halls, coaches, users, and training bookings.
-The application allows administrators or staff to create users and coaches, register sports halls, schedule training sessions, and allow users to join existing bookings.
-
-The project demonstrates the use of **object-oriented programming principles**, **Java collections**, **stream API**, **logging**, and **clean project structure with service layers**.
+This project was developed as part of a university assignment at **TVZ (Tehničko veleučilište u Zagrebu)**.
 
 ---
 
-## Features
+# 📌 Project Overview
 
-### Person Management
+The **Sports Center Booking System** is designed to simplify the process of managing sports facilities and reservations.
 
-* Add new **Users**
-* Add new **Coaches**
-* Store all persons in a collection
-* Group persons by type
-* Partition persons based on email availability
+The application enables:
 
-### Hall Management
-
-* Create sports halls
-* Define:
-
-  * Hall name
-  * Door number
-  * Capacity
-  * Supported sport type
-
-### Booking Management
-
-* Create new training bookings
-* Assign bookings to coaches
-* Allow users to join existing bookings
-
-### Search Functionality
-
-* Search users
-* Search halls
-
-### Statistics
-
-* Display **Top 3 coaches by number of bookings**
-* Group persons by type
-* Partition persons depending on whether they have an email
+- Managing sports facilities
+- Creating and viewing reservations
+- Preventing overlapping bookings
+- Organizing sports center resources efficiently
 
 ---
 
-## Application Menu
+# ⚙️ Technologies Used
 
-The application runs through a **console-based menu system**.
-
-Main menu options:
-
-1. Add person
-2. Add hall
-3. Create booking
-4. Join booking
-5. Search
-6. Statistics
-7. Exit
-
-Submenus allow searching and displaying statistics.
+- Java
+- Maven
+- JavaFX
+- SQL / H2 Database
 
 ---
 
-## Project Structure
+# 🗂️ Project Structure
 
 ```
-src/main/java
-
-app
- └ Main.java
-
-entity
- ├ booking
- │   ├ Booking.java
- │   └ BookingService.java
- │
- ├ hall
- │   ├ Hall.java
- │   ├ HallService.java
- │   ├ SportType.java
- │   ├ InvalidHallCapacity.java
- │   ├ Reservable.java
- │   └ Schedulable.java
- │
- ├ person
- │   ├ Person.java
- │   ├ PersonService.java
- │   ├ InvalidOibException.java
- │   │
- │   ├ coach
- │   │   ├ Coach.java
- │   │   └ CoachService.java
- │   │
- │   └ user
- │       ├ User.java
- │       └ UserService.java
- │
- └ search
-     └ SearchService.java
+src
+ └── main
+     └── java
+         └── hr.tvz.sportapp
+             ├── controller
+             ├── service
+             ├── repository
+             ├── model
+             └── config
 ```
 
----
+### Main Components
 
-## Technologies Used
-
-* **Java**
-* **Java Streams API**
-* **Java Collections**
-* **SLF4J Logging**
-* **Git**
-* **IntelliJ IDEA**
+| Layer | Description |
+|------|-------------|
+| Controller | Handles HTTP requests and API endpoints |
+| Service | Business logic for reservations and facilities |
+| Repository | Database communication |
+| Model | Entity classes representing system data |
 
 ---
 
-## Logging
+# ✨ Features
 
-The application uses **SLF4J logging** to track application activity.
-Different log levels are used throughout the program:
-
-* `trace` – entering and exiting methods
-* `info` – important program actions
-* `warn` – unexpected user input
-* `error` – exceptions and errors
-
-Logs help track program execution and debug potential issues.
+- 📅 Create and manage reservations
+- 🏟️ Manage sports facilities
+- 🔍 View available booking slots
+- ❌ Prevent duplicate bookings
+- 📊 Organized facility management
 
 ---
 
-## How to Run
+# 🚀 Getting Started
 
-1. Clone the repository
-2. Open the project in **IntelliJ IDEA**
-3. Ensure the project uses a compatible **Java SDK**
-4. Run the `Main` class
+## 1️⃣ Clone the repository
 
-The program will start in the console and display the main menu.
+```bash
+git clone https://github.com/brunomiklin/Sports-Center-Booking-System---project.git
+```
+
+## 2️⃣ Navigate to the project folder
+
+```bash
+cd Sports-Center-Booking-System---project
+```
+
+## 3️⃣ Run the application
+
+Using Maven:
+
+```bash
+mvn spring-boot:run
+```
+
+Or run the main class from your IDE.
 
 ---
 
-## Author
+# 📡 Example API Endpoints
 
-Bruno Miklin
+| Method | Endpoint | Description |
+|------|------|-------------|
+| GET | /facilities | Get all sports facilities |
+| GET | /bookings | Get all bookings |
+| POST | /bookings | Create a new booking |
+| DELETE | /bookings/{id} | Cancel booking |
 
 ---
 
-## Purpose of the Project
+# 🧠 System Logic
 
-This project was created as part of a **Java programming course** to demonstrate:
+The system ensures that:
 
-* Object-oriented design
-* Layered architecture using services
-* Exception handling
-* Stream operations and data processing
-* Logging and debugging practices
+- Two users cannot book the same facility at the same time
+- Reservations are stored in the database
+- Facilities can be managed by the system
+
+This prevents scheduling conflicts and ensures efficient facility usage.
+
+---
+
+# 📚 Educational Purpose
+
+This project was created for learning purposes and demonstrates:
+
+- Backend development with Spring Boot
+- REST API design
+- Layered architecture
+- Database integration
+
+---
+
+# 👤 Author
+
+**Bruno Miklin**
+
+GitHub:  
+https://github.com/brunomiklin
+
+---
+
+# 📄 License
+
+This project is intended for **educational use**.
