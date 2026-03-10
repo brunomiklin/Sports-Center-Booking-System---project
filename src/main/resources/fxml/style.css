@@ -1,0 +1,43 @@
+#inputUserScene
+{
+    -fx-base: #b5e2ff;
+    -fx-text-fill:white;
+}
+#userSerachScene
+{
+    -fx-base:#8fd3fe;
+    -fx-text-fill: light #acacac;
+}
+.text-field
+{
+    -fx-text-fill:black;
+}
+#hallInputScene
+{
+    -fx-base: #6ac5fe;
+    -fx-text-fill: light #acacac;
+}
+
+#mainScene
+{
+    -fx-base: #daf0ff;
+
+}
+#mainScene .button
+{
+    -fx-base: #e1e1e1;
+}
+#mainHbox
+{
+    -fx-border-color: gray;
+    -fx-border-width: 0 0 1 0;
+}
+#createBookingHall
+{
+    -fx-base:#45b6fe;
+
+}
+#joinBookingScene
+{
+    -fx-base: #6dc1fb;
+}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="630.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+
+        <!-- CENTER CONTENT -->
+        <center>
+            <VBox id="assignContent" spacing="12">
+                <padding>
+                    <Insets bottom="14" left="16" right="16" top="14" />
+                </padding>
+
+                <!-- FILTER BAR -->
+                <HBox id="filterBar" spacing="10">
+
+                    <Label prefHeight="29.0" prefWidth="30.0" text="Filter:" />
+
+                    <DatePicker fx:id="dateFilter" promptText="Datum (opcionalno)" />
+
+                    <CheckBox fx:id="futureOnlyCheck" selected="true" text="Samo budući termini" />
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Button id="btnRefresh" onAction="#refresh" text="Osvježi">
+               <font>
+                  <Font name="Impact" size="13.0" />
+               </font></Button>
+                </HBox>
+
+                <!-- MAIN TABLES -->
+                <HBox id="tablesRow" spacing="12">
+
+                    <!-- USERS PANE -->
+                    <VBox id="usersPane" spacing="8" HBox.hgrow="ALWAYS">
+                        <Label id="sectionUsers" text="Korisnici">
+                  <font>
+                     <Font name="System Bold Italic" size="13.0" />
+                  </font></Label>
+
+                        <HBox spacing="8">
+                            <TextField fx:id="userSearchField" promptText="Pretraži po imenu / OIB..." />
+                            <Button id="btnSearchUsers" onAction="#searchUsers" text="Traži" />
+                        </HBox>
+
+                        <TableView fx:id="usersTable" prefHeight="161.0" prefWidth="104.0">
+                            <columns>
+                                <TableColumn fx:id="uOibCol" prefWidth="130.0" text="OIB" />
+                                <TableColumn fx:id="uFirstNameCol" prefWidth="109.64704895019531" text="Ime" />
+                                <TableColumn fx:id="uLastNameCol" prefWidth="147.85299682617188" text="Prezime" />
+                            </columns>
+                        </TableView>
+
+                        <Label id="selectedUserLabel" fx:id="selectedUserLabel" text="Odabrani user: -">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font></Label>
+                    </VBox>
+
+                    <!-- BOOKINGS PANE -->
+                    <VBox id="bookingsPane" spacing="8" HBox.hgrow="ALWAYS">
+                        <Label id="sectionBookings" text="Dostupne rezervacije" />
+
+                        <TableView fx:id="bookingsTable" prefHeight="179.0" prefWidth="365.0">
+                            <columns>
+                                <TableColumn fx:id="bHallCol" prefWidth="160" text="Dvorana" />
+                                <TableColumn fx:id="bDateTimeCol" prefWidth="140.735107421875" text="Datum/Vrijeme" />
+                                <TableColumn fx:id="bCoachCol" prefWidth="158.66217041015625" text="Trener" />
+                                <TableColumn fx:id="bDurationCol" prefWidth="92.83782958984375" text="Trajanje   " />
+                            </columns>
+                        </TableView>
+
+                        <Label id="selectedBookingLabel" fx:id="selectedBookingLabel" text="Odabrani booking: -">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font></Label>
+                    </VBox>
+
+                </HBox>
+
+                <!-- ACTION BAR -->
+                <HBox id="actionBar" spacing="10">
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Button id="btnAssign" fx:id="assignBtn" disable="true" onAction="#assign" text="Pridruži odabranog usera na odabrani booking" />
+                </HBox>
+
+                <Separator />
+
+                <!-- USER BOOKINGS PREVIEW -->
+                <VBox id="previewPane" spacing="8">
+                    <Label id="sectionPreview" text="Termini od odabranog usera">
+               <font>
+                  <Font name="Impact" size="13.0" />
+               </font></Label>
+
+                    <ListView fx:id="userBookingsList" prefHeight="160" />
+
+                    <HBox spacing="10">
+                        <Button id="btnRemoveLink" fx:id="removeLinkBtn" disable="true" onAction="#removeSelectedLink" text="Ukloni odabrani termin" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label id="statusLabel" fx:id="statusLabel" text="" />
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </center>
+   <top>
+      <Label text="Pridruživanje korisnika rezervaciji" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" top="20.0" />
+         </padding>
+         <font>
+            <Font name="Impact" size="22.0" />
+         </font>
+      </Label>
+   </top>
+
+    </BorderPane>

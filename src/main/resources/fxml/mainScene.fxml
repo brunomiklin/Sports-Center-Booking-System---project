@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainScene" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.tvz.sportapp.controller.MainController">
+    <top>
+        <HBox fx:id="mainTopHbox" spacing="10">
+
+            <Label prefHeight="68.0" prefWidth="526.0" text="Sustav za upravljanje sportskim objektima">
+            <padding>
+               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </padding>
+            <font>
+               <Font name="Impact" size="25.0" />
+            </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="repoLabel" text="Storage: JSON" textFill="#485c83">
+            <padding>
+               <Insets right="20.0" top="30.0" />
+            </padding></Label>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox prefHeight="578.0" prefWidth="211.0" spacing="10">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+            <Button maxWidth="Infinity" onAction="#showUserInput" text="Korisnici i treneri" />
+            <Button maxWidth="Infinity" onAction="#showHallInput" text="Dvorane" />
+            <Button maxWidth="Infinity" onAction="#showCreateBooking" text="Rezervacije" />
+            <Button maxWidth="Infinity" onAction="#showJoinBooking" text="Pridruži User → Booking" />
+            <Separator />
+            <Button maxWidth="Infinity" text="Exit" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox prefHeight="578.0" prefWidth="723.0" spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <HBox fx:id="mainHbox" prefHeight="113.0" prefWidth="608.0" spacing="70.0">
+            <children>
+               <ImageView fitHeight="109.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/basket.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="111.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/soccer.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="111.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/tennis-ball.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="113.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../icons/voleyball.png" />
+                  </image>
+               </ImageView>
+            </children>
+            </HBox>
+
+            <!-- UPCOMING BOOKINGS -->
+            <VBox spacing="10">
+                <Label text="Sve rezervacije">
+               <font>
+                  <Font name="Impact" size="29.0" />
+               </font></Label>
+            </VBox>
+         <TableView prefHeight="279.0" prefWidth="683.0">
+           <columns>
+               <TableColumn prefWidth="199.0" text="Naziv dvorane" />
+             <TableColumn minWidth="0.0" prefWidth="127.0" text="Trener" />
+             <TableColumn minWidth="2.0" prefWidth="165.0" text="Korisnik" />
+               <TableColumn prefWidth="191.0" text="Datum i vrijeme" />
+           </columns>
+         </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>
